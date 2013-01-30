@@ -21,7 +21,9 @@ ig.module(
     },
 
     submit: function(params, callback) {
-      this.ajax.post(this.endpoint, params, callback);
+      this.ajax.post(this.endpoint, params, function(result) {
+        callback( JSON.parse(result) );
+      });
     },
 
     getHighest: function(callback, amount, scope) {
